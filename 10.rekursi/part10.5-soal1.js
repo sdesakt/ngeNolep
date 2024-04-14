@@ -5,26 +5,28 @@ Dengan HANYA mengubah code di dalam 2 function yang diberikan (sorting dan getTo
 */
 function sorting(arrNumber) {
   // code di sini
+  //!nemu cara sort integer cepet di google, belum terlalu paham juga
   arrNumber.sort((a, b) => a - b);
   return arrNumber;
 }
 
 function getTotal(arrNumber) {
   // code di sini
+  //!kalau kondisi argumen nya array kosong
   if (arrNumber.length === 0) {
     return "''";
   }
 
+  //!karena udah disort, jadinya paling kanan harusnya num paling gede. nah itung aja dari kanan
   let count = 1;
   let biggestNum = arrNumber[arrNumber.length - 1];
   for (let i = arrNumber.length - 1; i >= 0; i--) {
     if (arrNumber[i] === arrNumber[i - 1]) {
       count++;
     } else {
-      break;
+      return `angka paling besar adalah ${biggestNum} dan jumlah kemunculan sebanyak ${count} kali`;
     }
   }
-  return `angka paling besar adalah ${biggestNum} dan jumlah kemunculan sebanyak ${count} kali`;
 }
 
 function mostFrequentLargestNumbers(arrNumber) {
