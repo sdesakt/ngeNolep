@@ -20,21 +20,27 @@ RULES
 // }
 
 function angkaTerbesar(sentence) {
+  //! kalau [], return -1
   if (sentence.length < 1) {
     return -1;
   }
+
+  //! kalau array 1 elemen, return 1 elemen itu
   if (sentence.length < 2) {
     return sentence[0];
   }
 
+  //! var cuma buat clean code aja
   let right = sentence[sentence.length - 1];
   let testRight = sentence[sentence.length - 2];
 
+  //!nah ini rekursif nya, kalau elemen paling kanan > dari elemen sebelah kirinya pas,
+  //! pindahkan ke elemen paling kiri
   if (right > testRight) {
     sentence.unshift(right);
-    sentence.pop();
-    return angkaTerbesar(sentence);
   }
+
+  //! hapus elemen paling kanan, biar berkurang jumlah array nya, trus return fungsi rekursif pakai array baru
   sentence.pop();
   return angkaTerbesar(sentence);
 }
