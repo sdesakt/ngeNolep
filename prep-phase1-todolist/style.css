@@ -43,10 +43,18 @@ button {
   width: 15%;
 }
 
+#searchInput {
+  width: 65%;
+}
+
 /* list section*/
 
 section {
   width: 80%;
+}
+
+ul {
+  padding-inline: 0;
 }
 
 ul li {
@@ -54,8 +62,29 @@ ul li {
   font-size: 1.5em;
   padding-block: 0.2em;
   list-style-type: none;
+  position: relative;
 }
 
 ul li:hover {
   background-color: rgb(123, 251, 121);
+}
+
+ul li.checked::before {
+  content: "\2713";
+}
+
+.checked {
+  text-decoration: line-through;
+  background-color: pink;
+}
+
+.del {
+  position: absolute;
+  right: 0;
+  content: ✕;
+  padding-inline: 1em;
+}
+
+.del:hover {
+  background-color: aqua;
 }
